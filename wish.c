@@ -7,6 +7,8 @@
 #include "wish.h"
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <math.h>
+#include <ctype.h>
 char* PATH = "/bin";
 int log_counter = 0;//counter for history recorded
 char** wish_log;
@@ -86,8 +88,21 @@ void process_line (char** tokens, int numtokens) {
 				printf("%s",wish_log[i]);	
 			}
 		} else if (numargs == 1) {
-			//TODO check whether second argument is int
+			//check whether second argument is int
 			//if so print previous n lines of inputs otherwise error
+			char* temp = tokens[1];
+			int n = 0;
+			int rc = is_number(temp, &n);
+			if (rc == -1) {
+				//do nothing
+			} else if (rc == 1) {
+				error();
+			} else {//print previous n lines
+				int start_pos = log_counter - n;
+				for (int i = start_pos; i < log_counter; i++) {
+					printf("%s",wish_log[i]);
+				}
+			}
 		} else {//more than 1 args
 			error();
 		}

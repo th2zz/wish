@@ -8,15 +8,12 @@ build project using make
 **********************************************************************
 Trying to clean project using make clean
 make clean
-rm *.o wish str
-rm: cannot remove 'str': No such file or directory
-makefile:18: recipe for target 'clean' failed
-make: *** [clean] Error 1
+rm *.o wish 
 Trying to build project using make
 make
 gcc -Wall -Werror -g -c commands.c
-gcc -Wall -Werror -g -c str.c
-gcc -Wall -Werror -g wish.c commands.o str.o -o wish
+gcc -Wall -Werror -g -c str.c -lm
+gcc -Wall -Werror -g  wish.c commands.o str.o -o wish -lm
 
 
 test build PASSED (5 of 5)
@@ -30,7 +27,7 @@ Test exit
 run exit
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test exit PASSED (5 of 5)
@@ -44,7 +41,7 @@ Test cd
 cd with argument, and cd without argument
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test cd PASSED (5 of 5)
@@ -58,7 +55,7 @@ Test badcd
 cd to a bad directory
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test badcd PASSED (5 of 5)
@@ -72,7 +69,7 @@ Test history
 test history without argument
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test history PASSED (5 of 5)
@@ -86,21 +83,11 @@ Test historyarg
 test history with argument
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
-Failure: ./wish gave incorrect standard output.
-Expected: "wish> Linux\nwish> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nwish> wish> err\niloveos\nin\nout\nREADME\nwish> DO YOU?\nwish> cat iloveos\nhistory 2\nwish> wish> "
-Got:      "wish> Linux\nwish> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nwish> wish> err\niloveos\nin\nout\nREADME\nwish> DO YOU?\nwish> wish> wish> "
+/tmp/tmpKXUJhR/p/./wish
 
 
-test historyarg FAILED (0 of 5)
+test historyarg PASSED (5 of 5)
  (test history with argument)
- ./wish gave incorrect standard output.
-
- Test it yourself by running
- wish </u/c/s/cs537-1/tests/p2a/historyarg/in
- and check out the test folder
- /u/c/s/cs537-1/tests/p2a/historyarg
- to compare your output with reference outputs. 
 
 starting exec
 
@@ -110,7 +97,7 @@ Test exec
 path should be /bin
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test exec PASSED (5 of 5)
@@ -124,7 +111,7 @@ Test badexec
 run programs that do not exist in /bin
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test badexec PASSED (10 of 10)
@@ -138,7 +125,7 @@ Test path
 run path and a program that exists in a given path
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test path PASSED (5 of 5)
@@ -152,7 +139,7 @@ Test path2
 run path with a long pathname and many different paths
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test path2 PASSED (5 of 5)
@@ -166,7 +153,7 @@ Test pip
 simple piping
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 Failure: ./wish gave incorrect standard output.
 Expected: "wish> 1:this is a very very cheesy test to grep the OS \n3:there is two os here, os\n4:there should be 6 Os word in total\n7:os OS\nwish> "
 Got:      "wish> wish> "
@@ -190,7 +177,7 @@ Test line
 line with maximum allowed length
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test line PASSED (5 of 5)
@@ -204,7 +191,7 @@ Test batch
 test batch mode
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish /u/c/s/cs537-1/tests/p2a/batch/input
+/tmp/tmpKXUJhR/p/./wish /u/c/s/cs537-1/tests/p2a/batch/input
 Failure: ./wish gave incorrect standard output.
 Expected: "_\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nLinux\n"
 Got:      "ls /u/\nuname\nexit"
@@ -228,7 +215,7 @@ Test badarg
 extra argument to wish
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish /extra
+/tmp/tmpKXUJhR/p/./wish /extra
 
 
 test badarg PASSED (5 of 5)
@@ -242,7 +229,7 @@ Test whitespace
 leading and trailing whitespace, full whitespaces or empty string
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 
 
 test whitespace PASSED (5 of 5)
@@ -256,7 +243,7 @@ Test rdr
 simple redirection with no standard error
 
 **********************************************************************
-/tmp/tmpUKoJk6/p/./wish
+/tmp/tmpKXUJhR/p/./wish
 Failure: ./wish gave incorrect standard error.
 Expected: ""
 Got:      "uname: extra operand \342\200\230>\342\200\231\nTry 'uname --help' for more information.\n"
@@ -289,15 +276,8 @@ test badcd PASSED (5 of 5)
 test history PASSED (5 of 5)
  (test history without argument)
 
-test historyarg FAILED (0 of 5)
+test historyarg PASSED (5 of 5)
  (test history with argument)
- ./wish gave incorrect standard output.
-
- Test it yourself by running
- wish </u/c/s/cs537-1/tests/p2a/historyarg/in
- and check out the test folder
- /u/c/s/cs537-1/tests/p2a/historyarg
- to compare your output with reference outputs. 
 
 test exec PASSED (5 of 5)
  (path should be /bin)
@@ -350,6 +330,6 @@ test rdr FAILED (0 of 10)
  /u/c/s/cs537-1/tests/p2a/rdr
  to compare your output with reference outputs. 
 
-Passed 12 of 16 tests.
-Overall 12 of 16
-Points 65 of 95
+Passed 13 of 16 tests.
+Overall 13 of 16
+Points 70 of 95

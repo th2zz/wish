@@ -5,9 +5,9 @@ CFLAGS = -Wall -Werror -g
 ## make
 wish: wish.c commands.o str.o
 ##	gcc -Wall -Werror wish.c -o wish
-	$(CC) $(CFLAGS) wish.c commands.o str.o -o wish
+	$(CC) $(CFLAGS)  wish.c commands.o str.o -o wish -lm
 str.o: str.c
-	$(CC) $(CFLAGS) -c str.c
+	$(CC) $(CFLAGS) -c str.c -lm
 ##str: str.c
 ##	$(CC) $(CFLAGS) str.c -o str
 commands.o: commands.c
@@ -15,4 +15,4 @@ commands.o: commands.c
 	
 ## clean
 clean:
-	rm *.o wish str
+	rm *.o wish 
