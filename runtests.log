@@ -11,9 +11,9 @@ make clean
 rm *.o wish 
 Trying to build project using make
 make
-gcc -Wall -Werror -g -c commands.c
-gcc -Wall -Werror -g -c str.c -lm
-gcc -Wall -Werror -g  wish.c commands.o str.o -o wish -lm
+gcc -Wall -Werror -g -c commands.c -g
+gcc -Wall -Werror -g -c str.c -lm -g
+gcc -Wall -Werror -g  wish.c commands.o str.o -o wish -lm -g
 
 
 test build PASSED (5 of 5)
@@ -27,7 +27,7 @@ Test exit
 run exit
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test exit PASSED (5 of 5)
@@ -41,7 +41,7 @@ Test cd
 cd with argument, and cd without argument
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test cd PASSED (5 of 5)
@@ -55,7 +55,7 @@ Test badcd
 cd to a bad directory
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test badcd PASSED (5 of 5)
@@ -69,7 +69,7 @@ Test history
 test history without argument
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test history PASSED (5 of 5)
@@ -83,7 +83,7 @@ Test historyarg
 test history with argument
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test historyarg PASSED (5 of 5)
@@ -97,7 +97,7 @@ Test exec
 path should be /bin
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test exec PASSED (5 of 5)
@@ -111,7 +111,7 @@ Test badexec
 run programs that do not exist in /bin
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test badexec PASSED (10 of 10)
@@ -125,7 +125,7 @@ Test path
 run path and a program that exists in a given path
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test path PASSED (5 of 5)
@@ -139,7 +139,7 @@ Test path2
 run path with a long pathname and many different paths
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test path2 PASSED (5 of 5)
@@ -153,7 +153,7 @@ Test pip
 simple piping
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 Failure: ./wish gave incorrect standard output.
 Expected: "wish> 1:this is a very very cheesy test to grep the OS \n3:there is two os here, os\n4:there should be 6 Os word in total\n7:os OS\nwish> "
 Got:      "wish> wish> "
@@ -177,7 +177,7 @@ Test line
 line with maximum allowed length
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test line PASSED (5 of 5)
@@ -191,7 +191,7 @@ Test batch
 test batch mode
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish /u/c/s/cs537-1/tests/p2a/batch/input
+/tmp/tmpOTHA06/p/./wish /u/c/s/cs537-1/tests/p2a/batch/input
 Failure: ./wish gave incorrect standard output.
 Expected: "_\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nLinux\n"
 Got:      "ls /u/\nuname\nexit"
@@ -215,7 +215,7 @@ Test badarg
 extra argument to wish
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish /extra
+/tmp/tmpOTHA06/p/./wish /extra
 
 
 test badarg PASSED (5 of 5)
@@ -229,7 +229,7 @@ Test whitespace
 leading and trailing whitespace, full whitespaces or empty string
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
+/tmp/tmpOTHA06/p/./wish
 
 
 test whitespace PASSED (5 of 5)
@@ -243,21 +243,11 @@ Test rdr
 simple redirection with no standard error
 
 **********************************************************************
-/tmp/tmpKXUJhR/p/./wish
-Failure: ./wish gave incorrect standard error.
-Expected: ""
-Got:      "uname: extra operand \342\200\230>\342\200\231\nTry 'uname --help' for more information.\n"
+/tmp/tmpOTHA06/p/./wish
 
 
-test rdr FAILED (0 of 10)
+test rdr PASSED (10 of 10)
  (simple redirection with no standard error)
- ./wish gave incorrect standard error.
-
- Test it yourself by running
- wish </u/c/s/cs537-1/tests/p2a/rdr/in
- and check out the test folder
- /u/c/s/cs537-1/tests/p2a/rdr
- to compare your output with reference outputs. 
 
 **********************************************************************
 Summary:
@@ -320,16 +310,9 @@ test badarg PASSED (5 of 5)
 test whitespace PASSED (5 of 5)
  (leading and trailing whitespace, full whitespaces or empty string)
 
-test rdr FAILED (0 of 10)
+test rdr PASSED (10 of 10)
  (simple redirection with no standard error)
- ./wish gave incorrect standard error.
 
- Test it yourself by running
- wish </u/c/s/cs537-1/tests/p2a/rdr/in
- and check out the test folder
- /u/c/s/cs537-1/tests/p2a/rdr
- to compare your output with reference outputs. 
-
-Passed 13 of 16 tests.
-Overall 13 of 16
-Points 70 of 95
+Passed 14 of 16 tests.
+Overall 14 of 16
+Points 80 of 95

@@ -95,7 +95,7 @@ int is_number(const char* str, int* result) {
 	*result = (int)temp;
 	return 0;
 }
-
+//these are for test purposes
 //int main(void) 
 //{
     
