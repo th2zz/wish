@@ -29,4 +29,4 @@ for piping:
 			it will behave like normal shell except that one error will be reported and no output will appear on stdout.
 		if left x and right x are BOTH found in current search path
 			output to stdout and stderr of left x will be piped to stdin of right x
-		finally, if left x is not found AND right x is found, one error will be reported first, then output of right x will be printed to stdout assuming stdin of right x is empty.
+		finally, if left x is not found AND right x is found, the error should be redirected to right x (Not supported, simply skip right side instruction).

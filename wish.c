@@ -32,12 +32,12 @@ int run_command(char* actual_path, char*args[]){
 	} else if (fork_rc == 0) {//success
 		execv(actual_path, args);
 		//printf("this line should not be printed. execv_rc: %d\n",execv_rc);
-		exit (1);
+		error();
 	} else {
 		int wait_rc = waitpid(fork_rc,NULL,0);
 		if (wait_rc == -1) {
 			error();
-			exit(1);
+			//exit(1);
 		}//parent process wait till child process return
 	}
 	
@@ -54,18 +54,23 @@ int run_command_pip(char* actual_path1, char*args1[],char* actual_path2, char*ar
 	pid_t pid1, pid2;
 	int pipefd[2];
 	pipe(pipefd);
+	//int check = actual_path1 == NULL && args1 == NULL;
+	//if (!check) {
 	pid1 = fork();
         if (pid1 == -1) {//fail to fork
                 error();
-		return 1;
+               	return 1;
         } else if (pid1 == 0) {//success
                 dup2(pipefd[1],STDOUT_FILENO);
-		dup2(pipefd[1],STDERR_FILENO);
-		close(pipefd[0]);
-		execv(actual_path1, args1);
-                error();
-        	exit(1);//fail to execute
-	}  
+               	dup2(pipefd[1],STDERR_FILENO);
+               	//if (actual_path1 == NULL && args1 == NULL) {
+               	//      error();//write to stderr   first cmd invalid second valid
+               	//}
+               	close(pipefd[0]);
+               	int execv_rc = execv(actual_path1, args1);
+		if (execv_rc == -1) error();
+	}	
+	//}
 	pid2 = fork();
 	if (pid2 == -1) {
 		error();
@@ -74,19 +79,19 @@ int run_command_pip(char* actual_path1, char*args1[],char* actual_path2, char*ar
 		close(pipefd[1]);
 		execv(actual_path2, args2);
 		error();
-                exit(1);
 	}
    	close(pipefd[0]);
    	close(pipefd[1]);	
-        int wait_rc = waitpid(pid1,NULL,0);
+       	//if (!check) {
+	int wait_rc = waitpid(pid1,NULL,0);
         if (wait_rc == -1) {
-                        error();
-                     	exit(1); 
+      	         error();
         }
-       	int wait_rc2 = waitpid(pid2, NULL,0);
+
+	//}
+	int wait_rc2 = waitpid(pid2, NULL,0);
 	if (wait_rc2 == -1) {
                         error();
-			exit(1);
         }
 	//restore file descriptors
 	dup2(savedstdin, 0);
@@ -167,9 +172,10 @@ void build_path_and_execute(char** tokens, int numtokens, char**tokens2, int num
 						error();
 						if(actual_path != NULL) free(actual_path);
 				} else if(found == 0 && found2 == 1) {
-						error();
-						run_command(actual_path2, args2);
-                                                if(actual_path2 != NULL) free(actual_path2);
+						//error();
+						//TODO
+						//run_command(actual_path2, args2);
+						if(actual_path2 != NULL) free(actual_path2);
 				} else {
 					run_command_pip(actual_path,args1,actual_path2, args2);
 				}
