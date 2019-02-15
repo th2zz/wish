@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+/**
+ *	check if a char is digit
+ */
 int is_digit(char c){
     switch(c) {
         case '0':
@@ -38,6 +41,11 @@ int is_digit(char c){
     }
     return 0;
 }
+/**
+ *	split str in tokenized array according to delim
+ *	size information is stored at num_tokens
+ *
+ */
 char** split_str(const char* str, const char* delim, size_t* num_tokens) {
     //make a copy of str so that str is not modified
     char *s = strdup(str);
@@ -65,22 +73,44 @@ char** split_str(const char* str, const char* delim, size_t* num_tokens) {
     free(s);
     return tokens;
 }
+/**
+ *
+ *	check if a string is a valid number
+ */
 int valid(const char* str){
-    size_t numparts = 0;
-    split_str(str, "-", &numparts);
-    if (numparts > 2) return 0;//have multiple - or .  error
-    numparts = 0;
-    split_str(str, ".", &numparts);
-    if (numparts > 2) return 0;//have multiple - or .  error
-    //now only have 1 . or -
-    if(str[0] == '.') return 0;
+    int m_count = 0;
+    int p_count = 0;
+    int d_count = 0;
+    
+    for(int i = 0; i < strlen(str); i++){
+    	if(str[i] == '-') m_count++;
+    	if(str[i] == '+') p_count++;
+	if(str[i] == '.') d_count++;
+    }
+    if (m_count > 1 || p_count > 1 || d_count > 1) return 0;
+    if (m_count + p_count > 1) return 0;
+    if (m_count == 1) {
+    	if(str[0] != '-') return 0;
+    }
+    if (p_count == 1) {
+   	if(str[0] != '+') return 0; 
+    }
+    if (d_count == 1) {
+    	if(str[0] == '.') return 0;
+    	if(str[strlen(str) - 1] == '.') return 0;
+    }
+    //now only have 1 . appearing in btw str, 1  - or + appear at first pos of str
     int i = 0;
     while (str[i]!='\0') {
-        if (str[i]!='.' && str[i]!='-'&&is_digit(str[i]) != 1) return 0;//found 1 char not digit  error
+        if (str[i]!='.' && str[i]!='-' && str[i] != '+' && is_digit(str[i]) != 1) return 0;//found 1 char not digit  error
         i++;
     }
     return 1;//valid
 }
+/**
+ *	check if a string is a valid number. store converted result(ceiling) to result
+ *	any value <= 0 is dropped
+ */
 int is_number(const char* str, int* result) {
         
         //return value: -1  do nothing  0 good  1 error

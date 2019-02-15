@@ -33,7 +33,10 @@ int wish_cd(char*args[], int numtokens) {
 	return 0;
 }
 
-// the shell should print a list of all the lines of input which the user has entered since the shell was started
+/*
+ *
+ * 	print a list of all the lines of input which the user has entered since the shell was started
+ */
 int history_noarg() {
 	for(int i = 0; i < log_counter;i++) {
 		printf("%s",wish_log[i]);
@@ -55,14 +58,22 @@ int history_hasarg(char*tokens[]) {
         } else if (rc == 1) {
       		error();
         } else {//print previous n lines
-        	int start_pos = log_counter - n;
+        	if (n > log_counter || n > 2048) {
+			history_noarg();
+			//error();
+			return 0;
+		}
+		int start_pos = log_counter - n;
                 for (int i = start_pos; i < log_counter; i++) {
                        printf("%s",wish_log[i]);
                 }
         }
 	return 0;
 }
-//set path to be the specified path according to the command contents in args, return number of paths 
+/**
+ *	set path to be the specified path according to the command contents in args, return number of paths 
+ *	
+ */
 int set_path(char*args[], int numtokens) {
 	//int* ptr = &num_path;
 	if(numtokens == 1) {

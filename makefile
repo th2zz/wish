@@ -1,17 +1,15 @@
 CC = gcc
 CFLAGS = -Wall -Werror -g
-##all: wish str
-
+MATH = -lm
 ## make
 wish: wish.c commands.o str.o
-##	gcc -Wall -Werror wish.c -o wish
-	$(CC) $(CFLAGS)  wish.c commands.o str.o -o wish -lm -g
+	$(CC) $(CFLAGS)  wish.c commands.o str.o -o wish $(MATH)
+
 str.o: str.c
-	$(CC) $(CFLAGS) -c str.c -lm -g
-##str: str.c
-##	$(CC) $(CFLAGS) str.c -o str
+	$(CC) $(CFLAGS) -c str.c $(MATH)
+
 commands.o: commands.c
-	$(CC) $(CFLAGS) -c commands.c -g
+	$(CC) $(CFLAGS) -c commands.c 
 	
 ## clean
 clean:

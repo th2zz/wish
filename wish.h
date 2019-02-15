@@ -5,5 +5,6 @@ char* PATH;
 int log_counter;//counter for history recorded
 char** wish_log;
 int path_flag;//default    -1 only execute builtin commands  1 normal state (path has been set)
+void cleanup(char*tokens[], int* numtokens);
 #endif
 
