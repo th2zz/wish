@@ -27,7 +27,7 @@ Test exit
 run exit
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test exit PASSED (5 of 5)
@@ -41,7 +41,7 @@ Test cd
 cd with argument, and cd without argument
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test cd PASSED (5 of 5)
@@ -55,7 +55,7 @@ Test badcd
 cd to a bad directory
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test badcd PASSED (5 of 5)
@@ -69,7 +69,7 @@ Test history
 test history without argument
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test history PASSED (5 of 5)
@@ -83,7 +83,7 @@ Test historyarg
 test history with argument
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test historyarg PASSED (5 of 5)
@@ -97,7 +97,7 @@ Test exec
 path should be /bin
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test exec PASSED (5 of 5)
@@ -111,7 +111,7 @@ Test badexec
 run programs that do not exist in /bin
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test badexec PASSED (10 of 10)
@@ -125,7 +125,7 @@ Test path
 run path and a program that exists in a given path
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test path PASSED (5 of 5)
@@ -139,7 +139,7 @@ Test path2
 run path with a long pathname and many different paths
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test path2 PASSED (5 of 5)
@@ -153,7 +153,7 @@ Test pip
 simple piping
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test pip PASSED (10 of 10)
@@ -167,7 +167,7 @@ Test line
 line with maximum allowed length
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test line PASSED (5 of 5)
@@ -181,7 +181,7 @@ Test batch
 test batch mode
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish /u/c/s/cs537-1/tests/p2a/batch/input
+/tmp/tmpccxYiX/p/./wish /u/c/s/cs537-1/tests/p2a/batch/input
 
 
 test batch PASSED (5 of 5)
@@ -195,7 +195,7 @@ Test badarg
 extra argument to wish
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish /extra
+/tmp/tmpccxYiX/p/./wish /extra
 
 
 test badarg PASSED (5 of 5)
@@ -209,7 +209,7 @@ Test whitespace
 leading and trailing whitespace, full whitespaces or empty string
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test whitespace PASSED (5 of 5)
@@ -223,7 +223,7 @@ Test rdr
 simple redirection with no standard error
 
 **********************************************************************
-/tmp/tmp9coTIJ/p/./wish
+/tmp/tmpccxYiX/p/./wish
 
 
 test rdr PASSED (10 of 10)

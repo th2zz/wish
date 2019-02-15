@@ -28,15 +28,16 @@ int run_command(char* actual_path, char*args[]){
 	int fork_rc = fork();
 	if (fork_rc == -1) {//fail to fork
 		error();	
+		return 1;
 	} else if (fork_rc == 0) {//success
 		execv(actual_path, args);
 		//printf("this line should not be printed. execv_rc: %d\n",execv_rc);
-		error();//TODO exit or error?
+		exit (1);
 	} else {
 		int wait_rc = waitpid(fork_rc,NULL,0);
 		if (wait_rc == -1) {
 			error();
-			//wait failure
+			exit(1);
 		}//parent process wait till child process return
 	}
 	
@@ -56,6 +57,7 @@ int run_command_pip(char* actual_path1, char*args1[],char* actual_path2, char*ar
 	pid1 = fork();
         if (pid1 == -1) {//fail to fork
                 error();
+		return 1;
         } else if (pid1 == 0) {//success
                 dup2(pipefd[1],STDOUT_FILENO);
 		dup2(pipefd[1],STDERR_FILENO);
@@ -65,7 +67,9 @@ int run_command_pip(char* actual_path1, char*args1[],char* actual_path2, char*ar
         	exit(1);//fail to execute
 	}  
 	pid2 = fork();
-	if(pid2 == 0) {
+	if (pid2 == -1) {
+		error();
+	} else if(pid2 == 0) {
 		dup2(pipefd[0], STDIN_FILENO);
 		close(pipefd[1]);
 		execv(actual_path2, args2);
@@ -77,11 +81,12 @@ int run_command_pip(char* actual_path1, char*args1[],char* actual_path2, char*ar
         int wait_rc = waitpid(pid1,NULL,0);
         if (wait_rc == -1) {
                         error();
-                      
+                     	exit(1); 
         }
        	int wait_rc2 = waitpid(pid2, NULL,0);
 	if (wait_rc2 == -1) {
                         error();
+			exit(1);
         }
 	//restore file descriptors
 	dup2(savedstdin, 0);

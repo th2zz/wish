@@ -1,5 +1,5 @@
 /*this is a file on built-in commands*/
-//#include "commands.h"
+#include "commands.h"
 #include <stdlib.h>
 #include "wish.h"
 #include "str.h"
