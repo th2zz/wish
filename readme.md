@@ -1,4 +1,4 @@
-# wish Command Line Interpreter
+# wish> Command Line Interpreter
 supported built-in commands:
 path  change path, path will be overwriten each time. When empty shell is provided, shell can only execute built-in commands
 history x, show x lines of user commands history
