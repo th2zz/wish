@@ -6,6 +6,7 @@ supported built-in commands:
 - history x, show x lines of user commands history
 - exit exit the shell
 - cd    change current directory
+
 Otherwise unspecified, shell will try to find binary executable in current path exhaustively.
 
 History will report error in following cases:
