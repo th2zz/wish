@@ -2,10 +2,11 @@
 A command line interpreter that runs in linux environment.
 
 supported built-in commands:
-path  change path, path will be overwriten each time. When empty shell is provided, shell can only execute built-in commands
-history x, show x lines of user commands history
-exit exit the shell
-cd    change current directory
+- path  change path, path will be overwriten each time. When empty shell is provided, shell can only execute built-in commands
+- history x, show x lines of user commands history
+- exit exit the shell
+- cd    change current directory
+Otherwise unspecified, shell will try to find binary executable in current path exhaustively.
 
 History will report error in following cases:
 more than 1 arguments
