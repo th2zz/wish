@@ -10,19 +10,19 @@ supported built-in commands:
 Otherwise unspecified, shell will try to find binary executable in current path exhaustively.
 
 History will report error in following cases:
-more than 1 arguments
-the first argument is not a valid number
+- more than 1 arguments
+- the first argument is not a valid number
 	(+,-,. can only appear once; +,- can only appear at begining, . can only appear in middle. Any other characters results in invalid number)
-In the following cases: history will print all lines recorded since the program starts
-	the first argument exceeds number of lines of current record
-	the first argument exceeds maximum buffer size for current log(the maximum is mannually set to be 2048)
+- In the following cases: history will print all lines recorded since the program starts
+	- the first argument exceeds number of lines of current record
+	- the first argument exceeds maximum buffer size for current log(the maximum is mannually set to be 2048)
 If input number <= 0, history will do nothing.
 
 
-redirection of builtin commands are supported.
-piping of builtin commands are not supported.
+- redirection of builtin commands are supported.
+- piping of builtin commands are not supported.
 
-for piping and redirection:
+- for piping and redirection:
 	When user input commands like: "x>x"  "x|x"
 	error will be thrown when:
 		left x is empty or space
@@ -30,7 +30,7 @@ for piping and redirection:
 		both left x and right x is empty or space
 for redirction, addtionally, multiple files after > will be regarded as errors
 
-for piping:
+- for piping:
 	when both left x and right x are not empty:
 		if BOTH left x and right x excutables are not found in current search path
 			then two error will be reported
