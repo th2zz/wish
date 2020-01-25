@@ -1,4 +1,4 @@
-# wish Command Line Interpreter
+# wish 
 A command line interpreter that runs in linux environment.
 Supported Mode:
 
