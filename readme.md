@@ -4,7 +4,7 @@ Supported Mode:
 
 - Interactive Mode
 - Batch Mode 
-	- usage     wish [filename]
+	- usage     ./wish batch.txt
 
 supported built-in commands:
 - path  change path, path will be overwriten each time. When empty shell is provided, shell can only execute built-in commands
