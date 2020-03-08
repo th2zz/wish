@@ -1,7 +1,5 @@
 # wish 
 
-![3zJ2YF.gif](https://s2.ax1x.com/2020/03/08/3zJ2YF.gif)
-
 A command line interpreter that runs in linux environment.
 Supported Mode:
 
