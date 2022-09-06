@@ -1,6 +1,12 @@
 # wish 
 
 A command line interpreter that runs in linux environment.
+
+compilation
+`make wish`
+remove compiled files
+`make clean`
+
 Supported Mode:
 
 - Interactive Mode
